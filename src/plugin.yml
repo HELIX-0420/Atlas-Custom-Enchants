@@ -1,0 +1,10 @@
+version: 2.0
+author: HELIX & Ghillie
+main: me.helix.atlasenchants.Main
+api-version: 1.13
+name: Atlas-Custom-Enchants
+description: Custom Enchants
+depend: [ArmorEquipEvent, GlowAPI, PacketListenerApi]
+commands:
+  ae:
+    description: Plugin created by MrAlby

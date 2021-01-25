@@ -1,0 +1,47 @@
+############################################################
+# Atlas Custom Plugins made by Chelsea1124/HELIX
+#
+# Follow My Twitter to keep up with new projects!.
+# https://twitter.com/HELIX______
+#
+# Sub to my YouTube channel for fun and amazing content!.
+# https://www.youtube.com/chelsea1124HD
+#
+# Join my discord to speak with others and me when im coding!.
+# If you also need support join the discord below.
+# https://discord.gg/8s3MSg7
+#
+###########################################################
+
+BlackSmith:
+  InventoryName: "&7BlackSmith"
+
+Messages:
+  tag-prefix: "&6&lAtlasEnchants"
+  inventory-full: "&cYour Inventory is full so cant open blacksmith"
+  max-enchant-message: "&cYou already reached the max level of the enchant"
+  enchant-error-message: "&cYou can't use more than one enchant item."
+  inventory-full-message-onopen: "&cYour inventory is full or you haven't 2 free slots."
+  inventory-full-message-onclose: "&cYour inventory is full. Your items are on the ground!"
+  no-diamond: "&cYou don't have enough diamonds to upgrade it."
+
+Fearsight:
+  #Type of Item the Enchant is
+  customItem: HEART_OF_THE_SEA
+  #Lore for the Enchant
+  lore-for-Fearsight: "&7If you want use it or set this empty"
+  #Colour of the Glow per Mob Type
+  Monster-GLOW-Colour: DARK_RED
+  Passive-GLOW-Colour: DARK_GREEN
+  Player-Villager: WHITE
+  #Percentage Per Tier
+  perc-enchant-1: 50
+  perc-enchant-2: 25
+  perc-enchant-3: 10
+  #Radius of how far the glow goes per Tier
+  radius-of-glowing-1: 5
+  radius-of-glowing-2: 10
+  radius-of-glowing-3: 15
+  #Cost per Upgrade
+  amount-of-diamonds-to-level-2: 10
+  amount-of-diamonds-to-level-3: 15
