@@ -69,11 +69,18 @@ public class InvinClickEvent implements Listener {
 
         }
 
-        if (e.getView().getTitle().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.GodlyEnchantList.GodlyEnchantsName")))) {
+        //Godly Enchant GUI
+        if (e.getView().getTitle().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.GodlyEnchantsName")))) {
+
             if (e.getCurrentItem() == null) {
                 return;
             }
+
             if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.testName")))) {
+                e.setCancelled(true);
+            }
+
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.FearSightName")))) {
                 e.setCancelled(true);
             }
 
@@ -84,7 +91,7 @@ public class InvinClickEvent implements Listener {
         }
 
         //BlackSmith GUI
-        if (e.getView().getTitle().equalsIgnoreCase(Main.color(main.getConfig().getString(Main.color("BlackSmith.InventoryName"))))) {
+        if (e.getView().getTitle().equalsIgnoreCase(Main.color(main.getConfig().getString("BlackSmith.InventoryName")))) {
             if (e.getCurrentItem() == null) {
                 return;
             }

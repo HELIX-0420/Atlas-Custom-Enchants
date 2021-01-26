@@ -27,18 +27,22 @@ public class GodlyEnchants implements Listener {
         ItemStack FearSight = new ItemStack(Material.HEART_OF_THE_SEA);
         ItemMeta FearSightMeta = FearSight.getItemMeta();
         FearSightMeta.setDisplayName(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.FearSightName")));
-        List<String> MainCommandsl = new ArrayList();
-        for (String MainCommandsL : this.main.getConfig().getStringList("Shop.GodlyEnchantsList.FearSightName"))
-            MainCommandsl.add(ChatColor.translateAlternateColorCodes('&', MainCommandsL));
-        FearSightMeta.setLore(MainCommandsl);
-        FearSightMeta.setLore(Collections.singletonList(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.FearSightLore"))));
+        List<String> FearSightLore = new ArrayList();
+        for (String FearSightLoree : main.getConfig().getStringList("Shop.GodlyEnchantsList.FearSightLore")) {
+            FearSightLore.add(Main.color(FearSightLoree));
+        }
+        FearSightMeta.setLore(FearSightLore);
         FearSight.setItemMeta(FearSightMeta);
 
         ItemStack test2 = new ItemStack(Material.HEART_OF_THE_SEA);
         ItemMeta test2Meta = test2.getItemMeta();
         test2Meta.setDisplayName(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.testName")));
-        test2Meta.setLore(Collections.singletonList(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.FearSightLore"))));
-        test2.setItemMeta(FearSightMeta);
+        List<String> TesttLore = new ArrayList();
+        for (String TestLoree : main.getConfig().getStringList("Shop.GodlyEnchantsList.FearSightLore")) {
+            TesttLore.add(Main.color(TestLoree));
+        }
+        test2Meta.setLore(TesttLore);
+        test2.setItemMeta(test2Meta);
 
         ItemStack Filler1 = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
         ItemMeta FillerMeta = Filler1.getItemMeta();
