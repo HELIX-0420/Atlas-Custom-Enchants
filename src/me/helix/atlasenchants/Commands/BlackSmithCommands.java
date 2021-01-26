@@ -60,8 +60,8 @@ public class BlackSmithCommands implements CommandExecutor, Listener {
                     String prefix = Main.color(main.getConfig().getString("Messages.tag-prefix"));
 
                     sender.sendMessage("\n" + prefix);
-                    sender.sendMessage("/ae give [player] [quantity] | you the custom item");
-                    sender.sendMessage("/ae reload | the config");
+                    sender.sendMessage(Main.color("&c/ae &agive &e[player] &b[quantity] &f&l| &cGives you FearSight I Enchant"));
+                    sender.sendMessage(Main.color("&c/ae &areload &c| the config"));
                     return true;
                 }
                 if (args[0].equalsIgnoreCase("reload")) {

@@ -23,20 +23,23 @@ public class Shop implements Listener {
 
         ItemStack Godly = new ItemStack(Material.RED_STAINED_GLASS_PANE);
         ItemMeta GodlyMeta = Godly.getItemMeta();
-        GodlyMeta.setDisplayName(Main.color("&cTest"));
+        GodlyMeta.setDisplayName(Main.color("&c&lGODLY"));
         Godly.setItemMeta(GodlyMeta);
 
-        ItemStack Mithic = new ItemStack(Material.YELLOW_STAINED_GLASS_PANE);
-        ItemMeta MithicMeta = Mithic.getItemMeta();
-        MithicMeta.setDisplayName(Main.color("&cTest"));
-        Mithic.setItemMeta(MithicMeta);
+        ItemStack Mythic = new ItemStack(Material.YELLOW_STAINED_GLASS_PANE);
+        ItemMeta MythicMeta = Mythic.getItemMeta();
+        MythicMeta.setDisplayName(Main.color("&e&lMythic"));
+        Mythic.setItemMeta(MythicMeta);
 
         ItemStack Rare = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE);
         ItemMeta RareeMeta = Rare.getItemMeta();
-        RareeMeta.setDisplayName(Main.color("&cTest"));
+        RareeMeta.setDisplayName(Main.color("&5&lRare"));
         Rare.setItemMeta(RareeMeta);
 
         ItemStack Filler = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
+        ItemMeta FillerMeta = Filler.getItemMeta();
+        FillerMeta.setDisplayName(Main.color("&c&lF&6&lU&e&lC&2&lK &b&lO&9&lF&5&lF&f&l!!!"));
+        Filler.setItemMeta(FillerMeta);
 
         ShopGUI.setItem(0, Filler);
         ShopGUI.setItem(1, Filler);
@@ -49,12 +52,14 @@ public class Shop implements Listener {
         ShopGUI.setItem(8, Filler);
         ShopGUI.setItem(9, Filler);
         ShopGUI.setItem(10, Godly);
+        ShopGUI.setItem(11, Filler);
         ShopGUI.setItem(12, Filler);
-        ShopGUI.setItem(13, Filler);
-        ShopGUI.setItem(14, Mithic);
-        ShopGUI.setItem(16, Filler);
+        ShopGUI.setItem(13, Mythic);
+        ShopGUI.setItem(14, Filler);
+        ShopGUI.setItem(15, Filler);
+        ShopGUI.setItem(16, Rare);
         ShopGUI.setItem(17, Filler);
-        ShopGUI.setItem(18, Rare);
+        ShopGUI.setItem(18, Filler);
         ShopGUI.setItem(19, Filler);
         ShopGUI.setItem(20, Filler);
         ShopGUI.setItem(21, Filler);

@@ -1,8 +1,11 @@
 package me.helix.atlasenchants;
 
 import me.helix.atlasenchants.Commands.BlackSmithCommands;
+import me.helix.atlasenchants.Commands.ShopCommand;
 import me.helix.atlasenchants.Enchants.FearsightEnchant;
+import me.helix.atlasenchants.Events.InvinClickEvent;
 import me.helix.atlasenchants.GUIS.BlackSmith;
+import me.helix.atlasenchants.GUIS.Godly.GodlyEnchants;
 import me.helix.atlasenchants.GUIS.Shop;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -41,7 +44,7 @@ public class Main extends JavaPlugin implements Listener {
         }
 
         Bukkit.getConsoleSender().sendMessage(color("&7============================================="));
-        Bukkit.getConsoleSender().sendMessage(color("&l&eAtlas Custom Enchants &7: &a1&7.&a1"));
+        Bukkit.getConsoleSender().sendMessage(color("&l&eAtlas Custom Enchants &7: &a2&7.&a0&e+"));
         Bukkit.getConsoleSender().sendMessage("");
         Bukkit.getConsoleSender().sendMessage(color("&eMade by &7: &eChelsea1124&7/&eHELIX & Ghillie"));
         Bukkit.getConsoleSender().sendMessage("");
@@ -53,9 +56,12 @@ public class Main extends JavaPlugin implements Listener {
         this.getServer().getPluginManager().registerEvents(new BlackSmithCommands(this), this);
         this.getServer().getPluginManager().registerEvents(new FearsightEnchant(this), this);
         this.getServer().getPluginManager().registerEvents(new Shop(this), this);
+        this.getServer().getPluginManager().registerEvents(new GodlyEnchants(this),this);
+        this.getServer().getPluginManager().registerEvents(new InvinClickEvent(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(this, this);
         //All Commands
         this.getCommand("blacksmith").setExecutor(new BlackSmithCommands(this));
+        this.getCommand("shop").setExecutor(new ShopCommand(this));
 
     }
 

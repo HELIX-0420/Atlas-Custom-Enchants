@@ -1,5 +1,7 @@
 package me.helix.atlasenchants.Events;
 
+import me.helix.atlasenchants.GUIS.Godly.GodlyEnchants;
+import me.helix.atlasenchants.GUIS.Shop;
 import me.helix.atlasenchants.Main;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -45,15 +47,33 @@ public class InvinClickEvent implements Listener {
                 return;
             }
 
-            if (e.getCurrentItem().getType() == Material.RED_STAINED_GLASS_PANE || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("&cTest")) {
+            if (e.getCurrentItem().getType() == Material.RED_STAINED_GLASS_PANE || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("&c&lGODLY")) {
+                GodlyEnchants godly = new GodlyEnchants(main);
+                godly.build(player);
+                godly.show(player);
+                player.updateInventory();
                 e.setCancelled(true);
             }
 
-            if (e.getCurrentItem().getType() == Material.YELLOW_STAINED_GLASS_PANE || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("&cTest")) {
+            if (e.getCurrentItem().getType() == Material.YELLOW_STAINED_GLASS_PANE || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("&e&lMythic")) {
                 e.setCancelled(true);
             }
 
-            if (e.getCurrentItem().getType() == Material.PURPLE_STAINED_GLASS_PANE || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("&cTest")) {
+            if (e.getCurrentItem().getType() == Material.PURPLE_STAINED_GLASS_PANE || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("&5&lRare")) {
+                e.setCancelled(true);
+            }
+
+            if (e.getCurrentItem().getType() == Material.BLACK_STAINED_GLASS_PANE) {
+                e.setCancelled(true);
+            }
+
+        }
+
+        if (e.getView().getTitle().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.GodlyEnchantList.GodlyEnchantsName")))) {
+            if (e.getCurrentItem() == null) {
+                return;
+            }
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.testName")))) {
                 e.setCancelled(true);
             }
 

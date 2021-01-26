@@ -13,11 +13,26 @@
 #
 ###########################################################
 
+
+
 BlackSmith:
   InventoryName: "&6BlackSmith"
 
 Shop:
-  InventoryName: "&6Shop"
+  InventoryName: "&6&lShop"
+  GodlyEnchantsList:
+    GodlyEnchantsName: "&c&lGodly Enchants!"
+    FearSightName: "&c&lFearSight"
+    FearSightLore:
+      - "&c&lFearSight Enchantment"
+      - "&eThis &c&lGODLY Enchantment &eGives the ability to see mobs through walls!"
+      - "&c&lFearSight &ealso has 3 Different levels granting different effects dependent on how high of a level the enchantment may be."
+      - ""
+      - "&c&l◆ &9Tier I &7| &95 Block Distance"
+      - "&c&l◆ &9Tier II &7| &910 Block Distance"
+      - "&c&l◆ &9Tier III &7| &915 Block Distance"
+    testName: "&c&lT&6&lE&e&lS&2&lT &b&lD&9&lI&5&lE&f&l!!!"
+    testLore: "&c&lL&6&lO&e&lR&2&lE &b&lD&9&lI&5&lE&f&l!!!"
 
 Messages:
   tag-prefix: "&6&lAtlasEnchants"
