@@ -19,7 +19,7 @@ public class BlackSmith implements Listener {
 
         public Inventory BlackSmithGUI;
         public void build (Player p) {
-            BlackSmithGUI = Bukkit.createInventory(null, InventoryType.CHEST, Main.color(main.getConfig().getString("BlackSmith.InventoryName")));
+            BlackSmithGUI = Bukkit.createInventory(null, InventoryType.CHEST, Main.color(main.getConfig().getString(Main.color("BlackSmith.InventoryName"))));
 
             ItemStack vetro = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
             ItemMeta vetroMeta = vetro.getItemMeta();
@@ -33,7 +33,7 @@ public class BlackSmith implements Listener {
 
             ItemStack pulsante = new ItemStack(Material.LIME_STAINED_GLASS_PANE);
             ItemMeta pulsanteMeta = pulsante.getItemMeta();
-            pulsanteMeta.setDisplayName(Main.color("&6Upgrade"));
+            pulsanteMeta.setDisplayName(Main.color("&a&lUpgrade"));
             pulsante.setItemMeta(pulsanteMeta);
 
             BlackSmithGUI.setItem(0, vetro);

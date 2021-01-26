@@ -6,5 +6,7 @@ name: Atlas-Custom-Enchants
 description: Custom Enchants
 depend: [ArmorEquipEvent, GlowAPI, PacketListenerApi]
 commands:
-  ae:
-    description: Plugin created by MrAlby
+  blacksmith:
+    description: Opens the Blacksmith
+  Shop:
+    description: Opens The Enchant Shop

@@ -40,7 +40,6 @@ public class BlackSmithCommands implements CommandExecutor, Listener {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
 
-        if (command.getName().equalsIgnoreCase("ae"))
             if (args.length == 0) {
                 if (sender instanceof Player) {
                     Player p = (Player)sender;
@@ -52,17 +51,15 @@ public class BlackSmithCommands implements CommandExecutor, Listener {
                             p.updateInventory();
                         }
                     } else {
-                        String fullmessage = main.getConfig().getString("Messages.inventory-full-message-onopen");
-                        fullmessage = fullmessage.replaceAll("&", "§");
-                                p.sendMessage(fullmessage);
+                        p.sendMessage(Main.color(main.getConfig().getString("Messages.inventory-full-message-onopen")));
                         p.playSound(p.getLocation(), Sound.BLOCK_ANVIL_PLACE, 1.0F, 1.0F);
                     }
                 }
             } else if (sender.hasPermission("ae.admin")) {
                 if (args[0].equalsIgnoreCase("help")) {
-                    String prefix = main.getConfig().getString("Messages.tag-prefix");
-                    prefix = prefix.replaceAll("&", "§");
-                            sender.sendMessage("\n" + prefix);
+                    String prefix = Main.color(main.getConfig().getString("Messages.tag-prefix"));
+
+                    sender.sendMessage("\n" + prefix);
                     sender.sendMessage("/ae give [player] [quantity] | you the custom item");
                     sender.sendMessage("/ae reload | the config");
                     return true;
@@ -80,9 +77,8 @@ public class BlackSmithCommands implements CommandExecutor, Listener {
                         if (Material.getMaterial(typeItem) != null) {
                             ItemStack item = new ItemStack(Material.getMaterial(typeItem), Integer.parseInt(args[2]));
                             ItemMeta itemMeta = item.getItemMeta();
-                            String lore = main.getConfig().getString("Fearsight.lore-for-Fearsight");
-                            lore = lore.replaceAll("&", "§");
-                                    itemMeta.setDisplayName("§cFearsight I");
+                            String lore = Main.color(main.getConfig().getString("Fearsight.lore-for-Fearsight"));
+                            itemMeta.setDisplayName(Main.color("&cFearsight I"));
                             itemMeta.setLore(Arrays.asList(new String[] { lore }));
                             item.setItemMeta(itemMeta);
                             PlayerInventory inv = target.getInventory();

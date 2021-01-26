@@ -3,6 +3,7 @@ package me.helix.atlasenchants;
 import me.helix.atlasenchants.Commands.BlackSmithCommands;
 import me.helix.atlasenchants.Enchants.FearsightEnchant;
 import me.helix.atlasenchants.GUIS.BlackSmith;
+import me.helix.atlasenchants.GUIS.Shop;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
@@ -19,6 +20,7 @@ import java.util.List;
 public class Main extends JavaPlugin implements Listener {
 
     public HashMap<Player, Inventory> BlackSmithInventory = new HashMap<Player, Inventory>();
+    public HashMap<Player, Inventory> ShopInventory = new HashMap<Player, Inventory>();
     public HashMap<Player, Boolean> hasHelmet = new HashMap<>();
     public HashMap<Player, List<Entity>> playerEntities = new HashMap<>();
     public HashMap<Player, BukkitTask> ColorTask = new HashMap<>();
@@ -50,9 +52,11 @@ public class Main extends JavaPlugin implements Listener {
         this.getServer().getPluginManager().registerEvents(new BlackSmith(this), this);
         this.getServer().getPluginManager().registerEvents(new BlackSmithCommands(this), this);
         this.getServer().getPluginManager().registerEvents(new FearsightEnchant(this), this);
+        this.getServer().getPluginManager().registerEvents(new Shop(this), this);
         Bukkit.getServer().getPluginManager().registerEvents(this, this);
         //All Commands
-        this.getCommand("ae").setExecutor(new BlackSmithCommands(this));
+        this.getCommand("blacksmith").setExecutor(new BlackSmithCommands(this));
+
     }
 
 }

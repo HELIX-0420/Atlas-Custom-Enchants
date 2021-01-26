@@ -14,7 +14,10 @@
 ###########################################################
 
 BlackSmith:
-  InventoryName: "&7BlackSmith"
+  InventoryName: "&6BlackSmith"
+
+Shop:
+  InventoryName: "&6Shop"
 
 Messages:
   tag-prefix: "&6&lAtlasEnchants"
@@ -34,10 +37,6 @@ Fearsight:
   Monster-GLOW-Colour: DARK_RED
   Passive-GLOW-Colour: DARK_GREEN
   Player-Villager: WHITE
-  #Percentage Per Tier
-  perc-enchant-1: 50
-  perc-enchant-2: 25
-  perc-enchant-3: 10
   #Radius of how far the glow goes per Tier
   radius-of-glowing-1: 5
   radius-of-glowing-2: 10
