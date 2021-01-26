@@ -5,6 +5,7 @@ import me.helix.atlasenchants.Commands.ShopCommand;
 import me.helix.atlasenchants.Enchants.FearsightEnchant;
 import me.helix.atlasenchants.Events.InvinClickEvent;
 import me.helix.atlasenchants.GUIS.BlackSmith;
+import me.helix.atlasenchants.GUIS.Godly.FearSight.FearsightShop;
 import me.helix.atlasenchants.GUIS.Godly.GodlyEnchants;
 import me.helix.atlasenchants.GUIS.Shop;
 import org.bukkit.Bukkit;
@@ -24,6 +25,8 @@ public class Main extends JavaPlugin implements Listener {
 
     public HashMap<Player, Inventory> BlackSmithInventory = new HashMap<Player, Inventory>();
     public HashMap<Player, Inventory> ShopInventory = new HashMap<Player, Inventory>();
+    public HashMap<Player, Inventory> FearSightInventory = new HashMap<>();
+    public HashMap<Player, Inventory> GodlyEnchantInventory = new HashMap<>();
     public HashMap<Player, Boolean> hasHelmet = new HashMap<>();
     public HashMap<Player, List<Entity>> playerEntities = new HashMap<>();
     public HashMap<Player, BukkitTask> ColorTask = new HashMap<>();
@@ -52,12 +55,13 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage(color("&7============================================="));
 
         //All Events
-        this.getServer().getPluginManager().registerEvents(new BlackSmith(this), this);
-        this.getServer().getPluginManager().registerEvents(new BlackSmithCommands(this), this);
-        this.getServer().getPluginManager().registerEvents(new FearsightEnchant(this), this);
-        this.getServer().getPluginManager().registerEvents(new Shop(this), this);
+        this.getServer().getPluginManager().registerEvents(new BlackSmith(this),this);
+        this.getServer().getPluginManager().registerEvents(new BlackSmithCommands(this),this);
+        this.getServer().getPluginManager().registerEvents(new FearsightEnchant(this),this);
+        this.getServer().getPluginManager().registerEvents(new Shop(this),this);
         this.getServer().getPluginManager().registerEvents(new GodlyEnchants(this),this);
         this.getServer().getPluginManager().registerEvents(new InvinClickEvent(this),this);
+        this.getServer().getPluginManager().registerEvents(new FearsightShop(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(this, this);
         //All Commands
         this.getCommand("blacksmith").setExecutor(new BlackSmithCommands(this));

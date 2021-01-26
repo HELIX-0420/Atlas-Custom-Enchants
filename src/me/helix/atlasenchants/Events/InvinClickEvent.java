@@ -1,5 +1,6 @@
 package me.helix.atlasenchants.Events;
 
+import me.helix.atlasenchants.GUIS.Godly.FearSight.FearsightShop;
 import me.helix.atlasenchants.GUIS.Godly.GodlyEnchants;
 import me.helix.atlasenchants.GUIS.Shop;
 import me.helix.atlasenchants.Main;
@@ -76,11 +77,36 @@ public class InvinClickEvent implements Listener {
                 return;
             }
 
-            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.testName")))) {
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.FearSightName")))) {
                 e.setCancelled(true);
             }
 
-            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.FearSightName")))) {
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FillerName")))) {
+                e.setCancelled(true);
+            }
+
+            if (e.getCurrentItem().getType() == Material.BLACK_STAINED_GLASS_PANE) {
+                e.setCancelled(true);
+            }
+
+        }
+
+        //FearSight GUI
+        if (e.getView().getTitle().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FearSightShop.FearSightShopName")))) {
+
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FearSightShop.FearSight1")))) {
+                FearsightShop fear = new FearsightShop(main);
+                fear.build(player);
+                fear.show(player);
+                player.updateInventory();
+                e.setCancelled(true);
+            }
+
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FearSightShop.FearSight2")))) {
+                e.setCancelled(true);
+            }
+
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FearSightShop.FearSight3")))) {
                 e.setCancelled(true);
             }
 
@@ -95,10 +121,10 @@ public class InvinClickEvent implements Listener {
             if (e.getCurrentItem() == null) {
                 return;
             }
-            if (e.getCurrentItem().getType() == Material.GRAY_STAINED_GLASS_PANE || e.getCurrentItem().getType() == Material.RED_STAINED_GLASS_PANE) {
+            if (e.getCurrentItem().getType() == Material.BLACK_STAINED_GLASS_PANE) {
                 e.setCancelled(true);
             } else
-            if (e.getCurrentItem().getType() == Material.LIME_STAINED_GLASS_PANE && e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color("&a&lUpgrade"))) {
+            if (e.getCurrentItem().getType() == Material.LIME_STAINED_GLASS_PANE && e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color("&a&lUpgrade!"))) {
 
                 if (e.getInventory().getItem(11) == null || e.getInventory().getItem(15) == null) {
                     e.setCancelled(true);

@@ -16,23 +16,59 @@
 
 
 BlackSmith:
-  InventoryName: "&6BlackSmith"
+  InventoryName: "&9&lBlackSmith!"
 
 Shop:
-  InventoryName: "&6&lShop"
+  InventoryName: "&9&lShop!"
+  FillerName: "&c&lT&6&lE&e&lS&2&lT &b&lD&9&lI&5&lE&f&l!!!"
+  FillerLore:
+  - "&c&lL&6&lO&e&lR&2&lE &b&lD&9&lI&5&lE&f&l!!!"
   GodlyEnchantsList:
     GodlyEnchantsName: "&c&lGodly Enchants!"
-    FearSightName: "&c&lFearSight"
+    FearSightName: "&c&lFearSight Enchantment"
     FearSightLore:
-    - "&c&lFearSight Enchantment"
-    - "&eThis &c&lGODLY Enchantment &eGives the ability to see mobs through walls!"
-    - "&c&lFearSight &ealso has 3 Different levels granting different effects dependent on how high of a level the enchantment may be."
+    - "&eThis &cGODLY Enchantment &eGives the ability to see mobs through blocks!"
+    - "&c&lFearSight &ealso has 3 Different levels granting different effects."
+    - "&edependent on how high of a level the enchantment may be."
     - ""
-    - "&c&l◆ &9Tier I &7| &95 Block Distance"
-    - "&c&l◆ &9Tier II &7| &910 Block Distance"
-    - "&c&l◆ &9Tier III &7| &915 Block Distance"
-    testName: "&c&lT&6&lE&e&lS&2&lT &b&lD&9&lI&5&lE&f&l!!!"
-    testLore: "&c&lL&6&lO&e&lR&2&lE &b&lD&9&lI&5&lE&f&l!!!"
+    - "&c&l◆ &9Tier I &7| &95 Block Distance &7| &ePrice &9&l21 &eDiamonds"
+    - "&c&l◆ &9Tier II &7| &910 Block Distance &7| &ePrice &9&l32 &eDiamonds"
+    - "&c&l◆ &9Tier III &7| &915 Block Distance &7| &ePrice &9&l64 &eDiamonds"
+  FearSightShop:
+    FearSightShopName: "&c&lFearSight Shop!"
+    FearSight1: "&c&lFearSight I"
+    FearSight1Lore:
+      - "&eThis enchantment gives the ability to see mobs through &c5 &eblocks!"
+      - ""
+      - "&c&lBUY NOW!"
+      - "&921 Diamonds!"
+      - ""
+      - "&c&lHow To Apply"
+      - "&7Drag and drop this Enchant onto a &eHelmet!"
+      - ""
+      - "&4&lWARNING NO REFUND"
+    FearSight2: "&c&lFearSight II"
+    FearSight2Lore:
+      - "&eThis enchantment gives the ability to see mobs through &c10 &eblocks!"
+      - ""
+      - "&c&lBUY NOW!"
+      - "&932 Diamonds!"
+      - ""
+      - "&c&lHow To Apply"
+      - "&7Drag and drop this Enchant onto a &eHelmet!"
+      - ""
+      - "&4&lWARNING NO REFUND"
+    FearSight3: "&c&lFearSight III"
+    FearSight3Lore:
+      - "&eThis enchantment gives the ability to see mobs through &c15 &eblocks!"
+      - ""
+      - "&c&lBUY NOW!"
+      - "&964 Diamonds!"
+      - ""
+      - "&c&lHow To Apply"
+      - "&7Drag and drop this Enchant onto a &eHelmet!"
+      - ""
+      - "&4&lWARNING NO REFUND"
 
 Messages:
   tag-prefix: "&6&lAtlasEnchants"
@@ -47,7 +83,7 @@ Fearsight:
   #Type of Item the Enchant is
   customItem: HEART_OF_THE_SEA
   #Lore for the Enchant
-  lore-for-Fearsight: "&7If you want use it or set this empty"
+  lore-for-Fearsight: "&7This enchantment gives the ability to see mobs through blocks!"
   #Colour of the Glow per Mob Type
   Monster-GLOW-Colour: DARK_RED
   Passive-GLOW-Colour: DARK_GREEN

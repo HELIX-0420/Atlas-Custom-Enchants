@@ -2,7 +2,6 @@ package me.helix.atlasenchants.GUIS.Godly;
 
 import me.helix.atlasenchants.Main;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -12,7 +11,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class GodlyEnchants implements Listener {
@@ -22,7 +20,7 @@ public class GodlyEnchants implements Listener {
 
     public Inventory GodlyGUI;
     public void build (Player p) {
-        GodlyGUI = Bukkit.createInventory(null, InventoryType.CHEST, Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.GodlyEnchantsName")));
+        GodlyGUI = Bukkit.createInventory(null, InventoryType.CHEST, Main.color(main.getConfig().getString("Shop.FearSightShop.FearSightShopName")));
 
         ItemStack FearSight = new ItemStack(Material.HEART_OF_THE_SEA);
         ItemMeta FearSightMeta = FearSight.getItemMeta();
@@ -36,12 +34,12 @@ public class GodlyEnchants implements Listener {
 
         ItemStack test2 = new ItemStack(Material.HEART_OF_THE_SEA);
         ItemMeta test2Meta = test2.getItemMeta();
-        test2Meta.setDisplayName(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.testName")));
-        List<String> TesttLore = new ArrayList();
-        for (String TestLoree : main.getConfig().getStringList("Shop.GodlyEnchantsList.FearSightLore")) {
-            TesttLore.add(Main.color(TestLoree));
+        test2Meta.setDisplayName(Main.color(main.getConfig().getString("Shop.FillerName")));
+        List<String> Test3Lore = new ArrayList();
+        for (String TestLoree : main.getConfig().getStringList("Shop.FillerLore")) {
+            Test3Lore.add(Main.color(TestLoree));
         }
-        test2Meta.setLore(TesttLore);
+        test2Meta.setLore(Test3Lore);
         test2.setItemMeta(test2Meta);
 
         ItemStack Filler1 = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
@@ -79,7 +77,7 @@ public class GodlyEnchants implements Listener {
     }
 
     public void show(Player p) {
-        Main.instance.ShopInventory.put(p, GodlyGUI);
+        Main.instance.GodlyEnchantInventory.put(p, GodlyGUI);
         p.openInventory(GodlyGUI);
     }
 }
