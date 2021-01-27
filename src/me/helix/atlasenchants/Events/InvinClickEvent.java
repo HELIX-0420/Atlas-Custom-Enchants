@@ -14,6 +14,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class InvinClickEvent implements Listener {
 
     private Main main;
@@ -48,7 +52,7 @@ public class InvinClickEvent implements Listener {
                 return;
             }
 
-            if (e.getCurrentItem().getType() == Material.RED_STAINED_GLASS_PANE || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("&c&lGODLY")) {
+            if ((e.getCurrentItem().getType() == Material.RED_STAINED_GLASS_PANE || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("&c&lGODLY"))) {
                 GodlyEnchants godly = new GodlyEnchants(main);
                 godly.build(player);
                 godly.show(player);
@@ -94,7 +98,11 @@ public class InvinClickEvent implements Listener {
         //FearSight GUI
         if (e.getView().getTitle().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FearSightShop.FearSightShopName")))) {
 
-            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FearSightShop.FearSight1")))) {
+            if (e.getCurrentItem() == null) {
+                return;
+            }
+
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.GodlyEnchantsList.FearSightName")))) {
                 FearsightShop fear = new FearsightShop(main);
                 fear.build(player);
                 fear.show(player);
@@ -108,6 +116,85 @@ public class InvinClickEvent implements Listener {
 
             if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA || e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FearSightShop.FearSight3")))) {
                 e.setCancelled(true);
+            }
+
+            if (e.getCurrentItem().getType() == Material.BLACK_STAINED_GLASS_PANE) {
+                e.setCancelled(true);
+            }
+
+        }
+
+        //FearSight Buying GUI
+        if (e.getView().getTitle().equalsIgnoreCase(Main.color("&c&lFearSight Enchantments"))) {
+
+            if (e.getCurrentItem() == null) {
+                return;
+            }
+
+            int nnDiamond = 0;
+            byte bb;
+            int ii;
+            ItemStack[] arrayyOfItemStack;
+            for (ii = (arrayyOfItemStack = player.getInventory().getContents()).length, bb = 0; bb < ii; ) {
+                ItemStack is = arrayyOfItemStack[bb];
+                if (is != null &&
+                        is.getType() == Material.DIAMOND)
+                    nnDiamond += is.getAmount();
+                bb++;
+            }
+
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA && e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FearSightShop.FearSight1")))) {
+                if (nnDiamond >= 21) {
+                    ItemStack FearSight = new ItemStack(Material.HEART_OF_THE_SEA);
+                    ItemMeta FearSightMeta = FearSight.getItemMeta();
+                    FearSightMeta.setDisplayName(Main.color(Main.color("&cFearsight I")));
+                    FearSightMeta.setLore(Collections.singletonList(Main.color(main.getConfig().getString("Fearsight.lore-for-Fearsight"))));
+                    FearSight.setItemMeta(FearSightMeta);
+
+                    player.getInventory().removeItem(new ItemStack[]{new ItemStack(Material.DIAMOND, 21)});
+                    player.getInventory().addItem(new ItemStack[]{FearSight});
+                    e.setCancelled(true);
+                    return;
+                } else{
+                    player.sendMessage(Main.color(main.getConfig().getString("Messages.not-enought-diamonds")));
+                    e.setCancelled(true);
+                }
+            }
+
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA && e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FearSightShop.FearSight2")))) {
+                if (nnDiamond >= 32) {
+                    ItemStack FearSight = new ItemStack(Material.HEART_OF_THE_SEA);
+                    ItemMeta FearSightMeta = FearSight.getItemMeta();
+                    FearSightMeta.setDisplayName(Main.color(Main.color("&cFearsight II")));
+                    FearSightMeta.setLore(Collections.singletonList(Main.color(main.getConfig().getString("Fearsight.lore-for-Fearsight"))));
+                    FearSight.setItemMeta(FearSightMeta);
+
+                    player.getInventory().removeItem(new ItemStack[]{new ItemStack(Material.DIAMOND, 32)});
+                    player.getInventory().addItem(new ItemStack[]{FearSight});
+                    e.setCancelled(true);
+                    return;
+                } else{
+                    player.sendMessage(Main.color(main.getConfig().getString("Messages.not-enought-diamonds")));
+                    e.setCancelled(true);
+                }
+            }
+
+            if (e.getCurrentItem().getType() == Material.HEART_OF_THE_SEA && e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(Main.color(main.getConfig().getString("Shop.FearSightShop.FearSight3")))) {
+                if (nnDiamond >= 64) {
+                    ItemStack FearSight = new ItemStack(Material.HEART_OF_THE_SEA);
+                    ItemMeta FearSightMeta = FearSight.getItemMeta();
+                    FearSightMeta.setDisplayName(Main.color(Main.color("&cFearsight III")));
+                    FearSightMeta.setLore(Collections.singletonList(Main.color(main.getConfig().getString("Fearsight.lore-for-Fearsight"))));
+                    FearSight.setItemMeta(FearSightMeta);
+
+                    player.getInventory().removeItem(new ItemStack[]{new ItemStack(Material.DIAMOND, 64)});
+                    player.getInventory().addItem(new ItemStack[]{FearSight});
+                    e.setCancelled(true);
+                    return;
+                } else{
+                    player.sendMessage(Main.color(main.getConfig().getString("Messages.not-enought-diamonds")));
+                    e.setCancelled(true);
+                }
             }
 
             if (e.getCurrentItem().getType() == Material.BLACK_STAINED_GLASS_PANE) {

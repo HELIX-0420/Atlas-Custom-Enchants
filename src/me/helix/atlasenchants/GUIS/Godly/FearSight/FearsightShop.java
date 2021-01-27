@@ -20,7 +20,7 @@ public class FearsightShop implements Listener {
 
     public Inventory FearSightGUI;
     public void build (Player p) {
-        FearSightGUI = Bukkit.createInventory(null, InventoryType.CHEST, Main.color(main.getConfig().getString("Shop.FearSightShop.FearSightShopName")));
+        FearSightGUI = Bukkit.createInventory(null, InventoryType.CHEST, Main.color("&c&lFearSight Enchantments"));
 
         ItemStack FearSight1 = new ItemStack(Material.HEART_OF_THE_SEA);
         ItemMeta FearSight1Meta = FearSight1.getItemMeta();

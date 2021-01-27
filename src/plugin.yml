@@ -10,3 +10,5 @@ commands:
     description: Opens the Blacksmith
   Shop:
     description: Opens The Enchant Shop
+  test:
+    description: For Testing only

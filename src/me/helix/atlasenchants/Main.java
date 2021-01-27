@@ -2,7 +2,9 @@ package me.helix.atlasenchants;
 
 import me.helix.atlasenchants.Commands.BlackSmithCommands;
 import me.helix.atlasenchants.Commands.ShopCommand;
+import me.helix.atlasenchants.Commands.test;
 import me.helix.atlasenchants.Enchants.FearsightEnchant;
+import me.helix.atlasenchants.Enchants.IronLungEnchant;
 import me.helix.atlasenchants.Events.InvinClickEvent;
 import me.helix.atlasenchants.GUIS.BlackSmith;
 import me.helix.atlasenchants.GUIS.Godly.FearSight.FearsightShop;
@@ -66,6 +68,9 @@ public class Main extends JavaPlugin implements Listener {
         //All Commands
         this.getCommand("blacksmith").setExecutor(new BlackSmithCommands(this));
         this.getCommand("shop").setExecutor(new ShopCommand(this));
+        //Testing Command
+        this.getCommand("test").setExecutor(new test(this));
+        this.getServer().getPluginManager().registerEvents(new test(this),this);
 
     }
 

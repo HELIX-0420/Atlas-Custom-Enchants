@@ -78,6 +78,7 @@ Messages:
   inventory-full-message-onopen: "&cYour inventory is full or you haven't 2 free slots."
   inventory-full-message-onclose: "&cYour inventory is full. Your items are on the ground!"
   no-diamond: "&cYou don't have enough diamonds to upgrade it."
+  not-enought-diamonds: "&cYou don't have enough diamonds to buy this item."
 
 Fearsight:
   #Type of Item the Enchant is
