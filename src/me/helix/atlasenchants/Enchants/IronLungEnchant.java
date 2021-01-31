@@ -36,11 +36,6 @@ public class IronLungEnchant implements Listener {
     	if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
     		if(e.getPlayer().getItemInHand().getItemMeta().getLore() == IronLungEnchant.lore) {
             	if(hasCustomEnchant(e.getPlayer().getInventory().getHelmet()) == true) {
-            		ItemStack helmet = e.getPlayer().getInventory().getHelmet();
-            		ItemMeta HelmetMeta = helmet.getItemMeta();
-                    lore.add(Main.color("&cIronLung I"));
-                    HelmetMeta.setLore(lore);
-                    helmet.setItemMeta(HelmetMeta);
                 	e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
             	}else {
                 	if(e.getPlayer().getActivePotionEffects() != null) {
@@ -54,12 +49,6 @@ public class IronLungEnchant implements Listener {
     public void onInvChange(InventoryClickEvent e) {
         if(isHelmet(e.getWhoClicked().getInventory().getHelmet().getType()) == true) {
         	if(hasCustomEnchant(e.getWhoClicked().getInventory().getHelmet()) == true) {
-        		ItemStack helmet = e.getWhoClicked().getInventory().getHelmet();
-        		ItemMeta HelmetMeta = helmet.getItemMeta();
-                ArrayList<String> lore = new ArrayList<String>();
-                lore.add(Main.color("&cIronLung I"));
-                HelmetMeta.setLore(lore);
-                helmet.setItemMeta(HelmetMeta);
             	e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
         	}
         }else {
