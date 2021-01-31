@@ -34,25 +34,25 @@ public class IronLungEnchant implements Listener {
     @EventHandler
     public void onRightClickAir(PlayerInteractEvent e) {
     	if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            if(hasCustomEnchant(e.getPlayer().getInventory().getHelmet()) == true) {
-                e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
-            }else {
-                if(e.getPlayer().getActivePotionEffects() != null) {
-                    e.getPlayer().removePotionEffect(PotionEffectType.WATER_BREATHING);
+    		if(e.getPlayer().getItemInHand().getItemMeta().hasLore()) {
+                if(hasCustomEnchant(e.getPlayer().getInventory().getHelmet()) == true) {
+                    e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
+                }else {
+                	e.getPlayer().removePotionEffect(PotionEffectType.WATER_BREATHING);
                 }
-            }
+    		}
     	}
     }
     @EventHandler
     public void onInvChange(InventoryClickEvent e) {
         if(isHelmet(e.getWhoClicked().getInventory().getHelmet().getType()) == true) {
-        	if(hasCustomEnchant(e.getWhoClicked().getInventory().getHelmet()) == true) {
-            	e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
-        	}
-        }else {
-        	if(e.getWhoClicked().getActivePotionEffects() != null) {
-            	e.getWhoClicked().removePotionEffect(PotionEffectType.WATER_BREATHING);
-        	}
+    		if(e.getWhoClicked().getItemInHand().getItemMeta().hasLore()) {
+            	if(hasCustomEnchant(e.getWhoClicked().getInventory().getHelmet()) == true) {
+                	e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
+            	}else {
+                    e.getWhoClicked().removePotionEffect(PotionEffectType.WATER_BREATHING);
+                }
+    		}
         }
     }
     public boolean hasCustomEnchant(ItemStack helmet) {
