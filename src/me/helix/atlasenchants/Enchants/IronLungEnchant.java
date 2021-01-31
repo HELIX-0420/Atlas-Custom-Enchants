@@ -4,7 +4,9 @@ import me.helix.atlasenchants.Main;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
@@ -28,6 +30,25 @@ public class IronLungEnchant implements Listener {
             return true;
         }
         return false;
+    }
+    @EventHandler
+    public void onRightClickAir(PlayerInteractEvent e) {
+    	if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
+    		if(e.getPlayer().getItemInHand().getItemMeta().getLore() == IronLungEnchant.lore) {
+            	if(hasCustomEnchant(e.getPlayer().getInventory().getHelmet()) == true) {
+            		ItemStack helmet = e.getPlayer().getInventory().getHelmet();
+            		ItemMeta HelmetMeta = helmet.getItemMeta();
+                    lore.add(Main.color("&cIronLung I"));
+                    HelmetMeta.setLore(lore);
+                    helmet.setItemMeta(HelmetMeta);
+                	e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
+            	}else {
+                	if(e.getPlayer().getActivePotionEffects() != null) {
+                    	e.getPlayer().removePotionEffect(PotionEffectType.WATER_BREATHING);
+                	}
+                }
+    		}
+    	}
     }
     @EventHandler
     public void onInvChange(InventoryClickEvent e) {
