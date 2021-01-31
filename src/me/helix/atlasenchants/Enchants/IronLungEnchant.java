@@ -34,15 +34,13 @@ public class IronLungEnchant implements Listener {
     @EventHandler
     public void onRightClickAir(PlayerInteractEvent e) {
     	if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-    		if(e.getPlayer().getItemInHand().getItemMeta().getLore() == IronLungEnchant.lore) {
-            	if(hasCustomEnchant(e.getPlayer().getInventory().getHelmet()) == true) {
-                	e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
-            	}else {
-                	if(e.getPlayer().getActivePotionEffects() != null) {
-                    	e.getPlayer().removePotionEffect(PotionEffectType.WATER_BREATHING);
-                	}
+            if(hasCustomEnchant(e.getPlayer().getInventory().getHelmet()) == true) {
+                e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
+            }else {
+                if(e.getPlayer().getActivePotionEffects() != null) {
+                    e.getPlayer().removePotionEffect(PotionEffectType.WATER_BREATHING);
                 }
-    		}
+            }
     	}
     }
     @EventHandler
