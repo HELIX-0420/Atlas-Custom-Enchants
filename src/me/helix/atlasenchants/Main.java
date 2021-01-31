@@ -64,6 +64,7 @@ public class Main extends JavaPlugin implements Listener {
         this.getServer().getPluginManager().registerEvents(new GodlyEnchants(this),this);
         this.getServer().getPluginManager().registerEvents(new InvinClickEvent(this),this);
         this.getServer().getPluginManager().registerEvents(new FearsightShop(this),this);
+        this.getServer().getPluginManager().registerEvents(new IronLungEnchant(this),this);
         Bukkit.getServer().getPluginManager().registerEvents(this, this);
         //All Commands
         this.getCommand("blacksmith").setExecutor(new BlackSmithCommands(this));
