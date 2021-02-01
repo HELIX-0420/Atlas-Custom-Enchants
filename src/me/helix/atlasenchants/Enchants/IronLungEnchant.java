@@ -32,28 +32,20 @@ public class IronLungEnchant implements Listener {
         return false;
     }
     @EventHandler
-    public void onRightClickAir(PlayerInteractEvent e) {
-    	if(e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-    		if(e.getPlayer().getItemInHand().getItemMeta().hasLore()) {
-                if(hasCustomEnchant(e.getPlayer().getInventory().getHelmet()) == true) {
-                    e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
-                }else {
-                	e.getPlayer().removePotionEffect(PotionEffectType.WATER_BREATHING);
-                }
+    public void onEquip(ArmorEquipEvent e) {
+    	if(e.getNewArmorPiece() != null && e.getNewArmorPiece().getType() != Material.AIR) {
+    		if(isHelmet(e.getNewArmorPiece().getType()) == true) {
+    			if(e.getNewArmorPiece().getItemMeta().hasLore()) {
+            		if(hasCustomEnchant(e.getPlayer().getInventory().getHelmet()) == true) {
+            			e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
+                    }else {
+                    	e.getPlayer().removePotionEffect(PotionEffectType.WATER_BREATHING);
+                    }
+    			}
     		}
+
+    		
     	}
-    }
-    @EventHandler
-    public void onInvChange(InventoryClickEvent e) {
-        if(isHelmet(e.getWhoClicked().getInventory().getHelmet().getType()) == true) {
-    		if(e.getWhoClicked().getItemInHand().getItemMeta().hasLore()) {
-            	if(hasCustomEnchant(e.getWhoClicked().getInventory().getHelmet()) == true) {
-                	e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, Integer.MAX_VALUE, 1));
-            	}else {
-                    e.getWhoClicked().removePotionEffect(PotionEffectType.WATER_BREATHING);
-                }
-    		}
-        }
     }
     public boolean hasCustomEnchant(ItemStack helmet) {
         ItemMeta helmetMeta = helmet.getItemMeta();
