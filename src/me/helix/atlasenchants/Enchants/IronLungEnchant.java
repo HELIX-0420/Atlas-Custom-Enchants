@@ -1,5 +1,6 @@
 package me.helix.atlasenchants.Enchants;
 
+import com.codingforcookies.armorequip.ArmorEquipEvent;
 import me.helix.atlasenchants.Main;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
